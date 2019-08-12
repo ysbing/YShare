@@ -1,0 +1,55 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.ysbing.yshare_weibo">
+
+    <application>
+        <meta-data
+            android:name="YSHARE_WEIBO_APPKEY"
+            android:value="${YSHARE_WEIBO_APPKEY}" />
+        <meta-data
+            android:name="YSHARE_WEIBO_REDIRECT_URL"
+            android:value="${YSHARE_WEIBO_REDIRECT_URL}" />
+        <meta-data
+            android:name="YSHARE_WEIBO_SCOPE"
+            android:value="${YSHARE_WEIBO_SCOPE}" />
+
+        <activity
+            android:name="com.ysbing.yshare_weibo.YShareWeiboActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <activity
+            android:name="com.sina.weibo.sdk.web.WeiboSdkWebActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
+            android:name="com.sina.weibo.sdk.share.WbShareResultActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            tools:replace="configChanges">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sina.weibo.sdk.share.WbShareTransActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            tools:replace="configChanges">
+        </activity>
+        <activity
+            android:name="com.sina.weibo.sdk.share.WbShareToStoryActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            tools:replace="configChanges">
+        </activity>
+    </application>
+</manifest>

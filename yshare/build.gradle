@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply from: new File(rootProject.projectDir, "gradle/gradle-on-demand.gradle")
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 28
+        versionCode VERSION_CODE.toInteger()
+        versionName VERSION_NAME.toString()
+        defaultPublishConfig "fullRelease"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "channel"
+    productFlavors {
+        blank {
+            dimension "channel"
+        }
+        full {
+            dimension "channel"
+        }
+    }
+}
+
+dependencies {
+    debugApi project(':base')
+    debugApi project(':qq')
+    debugApi project(':wechat')
+    debugApi project(':weibo')
+    releaseApi 'com.ysbing.yshare:base:' + VERSION_NAME
+    releaseApi 'com.ysbing.yshare:qq:' + VERSION_NAME + '-blank'
+    releaseApi 'com.ysbing.yshare:wechat:' + VERSION_NAME + '-blank'
+    releaseApi 'com.ysbing.yshare:weibo:' + VERSION_NAME + '-blank'
+}

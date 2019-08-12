@@ -1,0 +1,21 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ysbing.yshare_wechat">
+
+    <application>
+        <meta-data
+            android:name="YSHARE_WECHAT_APPID"
+            android:value="${YSHARE_WECHAT_APPID}" />
+
+        <activity
+            android:name=".YWXEntryActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <activity-alias
+            android:name="${applicationId}.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:targetActivity=".YWXEntryActivity" />
+
+    </application>
+</manifest>
