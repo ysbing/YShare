@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         shareConfig.imageUrl = Uri.parse("asset:///share_image.png");
         shareConfig.justImage = true;
         YShare shareUtil = new YShare(this, shareConfig);
-        shareUtil.shareToWxFriends();
+        shareUtil.shareToQzone();
         shareUtil.setShareListener(new YShareListener() {
             @Override
             public void onShare(@NonNull YShareConfig.ShareChannel shareChannel,

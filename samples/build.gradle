@@ -36,4 +36,8 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation project(':yshare')
+//    implementation 'com.ysbing.yshare:yshare:1.0.0'
+//    implementation 'com.ysbing.yshare:qq:1.0.0'
+//    implementation 'com.ysbing.yshare:wechat:1.0.0'
+//    implementation 'com.ysbing.yshare:weibo:1.0.0'
 }

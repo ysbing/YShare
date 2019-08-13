@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import com.sina.weibo.sdk.api.ImageObject;
 import com.sina.weibo.sdk.api.TextObject;
@@ -36,7 +34,7 @@ public class YShareWeiboActivity extends Activity implements WbShareCallback {
     private WbShareHandler mShareHandler;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         WeiboInit.init(YShareConstants.getWeiboAppKey(), YShareConstants.getWeiboRedirectUrl(),
@@ -129,7 +127,7 @@ public class YShareWeiboActivity extends Activity implements WbShareCallback {
         sendShareBroadcast(YShareConfig.ShareResult.AUTH_ERROR);
     }
 
-    private void sendShareBroadcast(@NonNull YShareConfig.ShareResult shareResult) {
+    private void sendShareBroadcast(YShareConfig.ShareResult shareResult) {
         Intent intent = new Intent(YShareConstants.SHARE_ACTION);
         intent.putExtra(YShareConstants.SHARE_TYPE, YShareConfig.ShareChannel.CHANNEL_WEIBO);
         intent.putExtra(YShareConstants.SHARE_RESULT, shareResult);

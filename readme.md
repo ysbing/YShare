@@ -7,7 +7,6 @@
 * 微信分享可以不用复写WXEntryActivity类，框架已经帮你内部处理妥当
 
 ## 三、安装
-推荐使用 Maven：
 ``` gradle
 dependencies {
     implementation 'com.ysbing.yshare:yshare:1.0.0'
@@ -36,30 +35,30 @@ android {
 ```
 配置全局分享参数，也可以对单独分享另外设置
 ``` java
-        YShareConfig shareConfig = YShareConfig.get();
-        shareConfig.shareTitle = "我是标题";
-        shareConfig.shareUrl = "https://www.baidu.com/";
-        shareConfig.shareDes = "我是描述";
-        shareConfig.imageUrl = Uri.parse(
-                "https://www.baidu.com/img/bd_logo1.png");
-        YShare.Companion.setShareConfig(shareConfig);
+YShareConfig shareConfig = YShareConfig.get();
+shareConfig.shareTitle = "我是标题";
+shareConfig.shareUrl = "https://www.baidu.com/";
+shareConfig.shareDes = "我是描述";
+shareConfig.imageUrl = Uri.parse(
+        "https://www.baidu.com/img/bd_logo1.png");
+YShare.Companion.setShareConfig(shareConfig);
 ```
 进行分享，详细可以参考实例工程
 ``` java
-        YShareConfig shareConfig = YShareConfig.get();
-        shareConfig.imageUrl = Uri.parse("asset:///share_image.png");
-        shareConfig.justImage = true;
-        YShare shareUtil = new YShare(this, shareConfig);
-        shareUtil.shareToWxFriends();
-        shareUtil.setShareListener(new YShareListener() {
-            @Override
-            public void onShare(@NonNull YShareConfig.ShareChannel shareChannel,
-                                @NonNull YShareConfig.ShareResult shareResult, @Nullable Bundle data) {
-                String log = "shareChannel:" + shareChannel + ",shareResult:" + shareResult;
-                Log.i("yshare_info", log);
-                Toast.makeText(MainActivity.this, log, Toast.LENGTH_SHORT).show();
-            }
-        });
+YShareConfig shareConfig = YShareConfig.get();
+shareConfig.imageUrl = Uri.parse("asset:///share_image.png");
+shareConfig.justImage = true;
+YShare shareUtil = new YShare(this, shareConfig);
+shareUtil.shareToWxFriends();
+shareUtil.setShareListener(new YShareListener() {
+    @Override
+    public void onShare(@NonNull YShareConfig.ShareChannel shareChannel,
+                        @NonNull YShareConfig.ShareResult shareResult, @Nullable Bundle data) {
+        String log = "shareChannel:" + shareChannel + ",shareResult:" + shareResult;
+        Log.i("yshare_info", log);
+        Toast.makeText(MainActivity.this, log, Toast.LENGTH_SHORT).show();
+    }
+});
 ```
 如果你的工程涉及到微信登陆，需要复写WXEntryActivity，然后继承YWXEntryActivity，manifest的写法如下图：
 ![](https://github.com/ysbing/YShare/wiki/assets/img_hasLoginManifest.png)

@@ -115,4 +115,10 @@ public class YShareConstants {
         }
         return sWeiboScope;
     }
+
+    public static String getErrorTip(String module) {
+        return String.format("\n*********************** If you need to use it," +
+                        "gradle dependencies:\"implementation \'com.ysbing.yshare:%1$s:%2$s\'\"***********************",
+                module, BuildConfig.VERSION_NAME);
+    }
 }

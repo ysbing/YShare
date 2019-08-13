@@ -32,12 +32,13 @@ android {
 }
 
 dependencies {
-    debugApi project(':base')
-    debugApi project(':qq')
-    debugApi project(':wechat')
-    debugApi project(':weibo')
-    releaseApi 'com.ysbing.yshare:base:' + VERSION_NAME
-    releaseApi 'com.ysbing.yshare:qq:' + VERSION_NAME + '-blank'
-    releaseApi 'com.ysbing.yshare:wechat:' + VERSION_NAME + '-blank'
-    releaseApi 'com.ysbing.yshare:weibo:' + VERSION_NAME + '-blank'
+    api project(':base')
+    api project(':qq')
+    api project(':wechat')
+    api project(':weibo')
+//    api 'com.ysbing.yshare:base:' + VERSION_NAME
+//    api 'com.ysbing.yshare:qq:' + VERSION_NAME + '-blank'
+//    api 'com.ysbing.yshare:wechat:' + VERSION_NAME + '-blank'
+//    api 'com.ysbing.yshare:weibo:' + VERSION_NAME + '-blank'
+    compileOnly 'com.android.support:appcompat-v7:28.0.0'
 }

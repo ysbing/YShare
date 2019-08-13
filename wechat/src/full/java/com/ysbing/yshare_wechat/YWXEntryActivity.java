@@ -3,7 +3,6 @@ package com.ysbing.yshare_wechat;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
@@ -22,7 +21,7 @@ public class YWXEntryActivity extends Activity implements IWXAPIEventHandler {
     private IWXAPI mWxApi;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mWxApi = WXAPIFactory.createWXAPI(this, YShareConstants.getWXAppId(), false);
         mWxApi.registerApp(YShareConstants.getWXAppId());

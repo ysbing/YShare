@@ -11,7 +11,7 @@ import java.io.File
 /**
  * 微信分享的方法接口
  */
-interface WxShareListener : BaseYShareInnerListener {
+interface WechatShareListener : BaseYShareInnerListener {
 
     fun shareToWxFriends() {
         shareInnerListener.showShareFragment()

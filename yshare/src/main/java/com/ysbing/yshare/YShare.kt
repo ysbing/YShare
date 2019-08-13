@@ -7,14 +7,14 @@ import com.ysbing.yshare_base.YShareConstants
 import com.ysbing.yshare_base.YShareInnerListener
 import com.ysbing.yshare_base.YShareListener
 import com.ysbing.yshare_qq.QQShareListener
-import com.ysbing.yshare_wechat.WxShareListener
+import com.ysbing.yshare_wechat.WechatShareListener
 import com.ysbing.yshare_weibo.WeiboShareListener
 
 class YShare(
     override val activity: Activity,
     override val shareConfig: YShareConfig
 ) : YShareInnerListener,
-    WxShareListener,
+    WechatShareListener,
     QQShareListener,
     WeiboShareListener {
 
